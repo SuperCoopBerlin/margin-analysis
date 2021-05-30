@@ -63,7 +63,7 @@ class Productproduct(models.Model):
             if classification:
                 multi = (100 + classification.markup) / 100
                 if product.taxes_id.filtered(
-                    lambda x: x.amount_type != "percent"
+                    lambda x: x.amount_type != "percent" and x.price_include
                 ):
                     raise ValidationError(_(
                         "Unimplemented Feature\n"
